@@ -1,4 +1,5 @@
 $:.push File.expand_path("../lib", __FILE__)
+$:.push File.expand_path("../app/helpers", __FILE__)
 
 # Maintain your gem's version:
 require "css_splitter/version"

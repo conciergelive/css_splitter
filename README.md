@@ -93,6 +93,23 @@ Since 0.4.1 in development split stylesheets have `debug: false` option by defau
 <%= split_stylesheet_link_tag "application", debug: false %>
 ```
 
+## Rails 2
+
+application_helper.rb:
+
+    require 'css_splitter/application_helper'
+    
+    module ApplicationHelper
+    include CssSplitter::ApplicationHelper
+
+
+config/initializers/rails2_asset_pipeline.rb:
+
+    Rails2AssetPipeline.setup do |environment|
+        environment.register_bundle_processor 'text/css', CssSplitter::SprocketsEngine
+    end
+
+
 ## Credits & License
 
 This is a joint project by the two German Rails shops [Zweitag](http://zweitag.de) and [Railslove](http://railslove.com), therefore the GitHub name "Zweilove".
